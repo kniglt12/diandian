@@ -27,8 +27,8 @@ void swapint(int* a, int* b) {
 }
 int main() {
 
-	scanf("elevator %d %d", &elenow,&num);//多输入一个总乘客数呗，不文件输入输出没想到好的终止办法qwq- 
-	for(int i=1;i<=num;i++){
+	scanf("elevator %d %d", &elenow, &num);//多输入一个总乘客数呗，不文件输入输出没想到好的终止办法qwq- 
+	for (int i = 1; i <= num; i++) {
 		scanf("%d %d %d", &s[i], &e[i], &t[i]);
 
 	}
@@ -64,12 +64,13 @@ int main() {
 							break;
 						}
 					}
-					for (int j = top; j >= i + 1; j--) {
-						swapint(qs[j], qs[j - 1]);
-						swapint(qe[j], qe[j - 1]);
-						swapint(up[j], up[j - 1]);
+					for (int j = i; j >= top + 1; j--) {
+						swapint(&qs[j], &qs[j - 1]);
+						swapint(&qe[j], &qe[j - 1]);
+						swapint(&up[j], &up[j - 1]);
 					}
 					top++;
+					//continue;
 				}
 				else {
 					if (eled == up[i]) {
@@ -82,10 +83,10 @@ int main() {
 								break;
 							}
 						}
-						for (int j = top; j >= i + 1; j--) {
-							swapint(qs[j], qs[j - 1]);
-							swapint(qe[j], qe[j - 1]);
-							swapint(up[j], up[j - 1]);
+						for (int j = i; j >= top + 1; j--) {
+							swapint(&qs[j], &qs[j - 1]);
+							swapint(&qe[j], &qe[j - 1]);
+							swapint(&up[j], &up[j - 1]);
 						}
 						top++;
 					}

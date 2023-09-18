@@ -61,10 +61,10 @@ int main() {
 							break;
 						}
 					}
-					for (int j = top; j >= i + 1; j--) {
-						swapint(qs[j], qs[j - 1]);
-						swapint(qe[j], qe[j - 1]);
-						swapint(up[j], up[j - 1]);
+					for (int j = i; j >= top + 1; j--) {
+						swapint(&qs[j], &qs[j - 1]);
+						swapint(&qe[j], &qe[j - 1]);
+						swapint(&up[j], &up[j - 1]);
 					}
 					top++;
 				}
@@ -79,10 +79,10 @@ int main() {
 								break;
 							}
 						}
-						for (int j = top; j >= i + 1; j--) {
-							swapint(qs[j], qs[j - 1]);
-							swapint(qe[j], qe[j - 1]);
-							swapint(up[j], up[j - 1]);
+						for (int j = i; j >= top + 1; j--) {
+							swapint(&qs[j], &qs[j - 1]);
+							swapint(&qe[j], &qe[j - 1]);
+							swapint(&up[j], &up[j - 1]);
 						}
 						top++;
 					}
