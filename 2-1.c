@@ -26,20 +26,17 @@ void swapint(int* a, int* b) {
 	*a = c;
 }
 int main() {
-	FILE* pf1 = fopen("in.txt", "r");
-	FILE* pf2 = fopen("out.txt", "w");
-	fscanf(pf1, "elevator %d", &elenow);
-	num = 0;
-	while (!feof(pf1)) {
-		num++;
-		fscanf(pf1, "%d %d %d", &s[num], &e[num], &t[num]);
+
+	scanf("elevator %d %d", &elenow,&num);//多输入一个总乘客数呗，不文件输入输出没想到好的终止办法qwq- 
+	for(int i=1;i<=num;i++){
+		scanf("%d %d %d", &s[i], &e[i], &t[i]);
 
 	}
 	int ti = 1;
 	top = 1;
 	update(0);
 	update(1);
-	fprintf(pf2, "%d 0 0\n", elenow);
+	printf("%d 0 0\n", elenow);
 	while (1) {
 
 		//cout << top<<" "<<bu <<" "<<eled << endl;
@@ -48,7 +45,7 @@ int main() {
 			if (ele[i] == elenow) {
 				ele[i] = 0;
 				elenum--;
-				fprintf(pf2, "out %d %d %d\n", elenow, ti, elenum);
+				printf("out %d %d %d\n", elenow, ti, elenum);
 				cou++;
 			}
 		}
@@ -63,7 +60,7 @@ int main() {
 							ele[j] = qe[i];
 							elenum++;
 							eled = up[i];
-							fprintf(pf2, "in %d %d %d\n", elenow, ti, elenum);
+							printf("in %d %d %d\n", elenow, ti, elenum);
 							break;
 						}
 					}
@@ -81,7 +78,7 @@ int main() {
 								ele[j] = qe[i];
 								elenum++;
 
-								fprintf(pf2, "in %d %d %d\n", elenow, ti, elenum);
+								printf("in %d %d %d\n", elenow, ti, elenum);
 								break;
 							}
 						}
@@ -117,7 +114,5 @@ int main() {
 		}
 		elenow = elenow + eled;
 	}
-	fclose(pf1);
-	fclose(pf2);
 	return 0;
 }
